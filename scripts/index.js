@@ -1,4 +1,11 @@
-fetch(`https://epc.opendatacommunities.org/api/v1/domestic/search?address=Cottesbrooke close`, {
+
+function myFunction() {
+  var addressParam = document.getElementById("address").value; 
+  console.log(addressParam);
+
+const list = new Houselist();
+
+fetch(`https://epc.opendatacommunities.org/api/v1/domestic/search?address=${addressParam}`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
@@ -8,8 +15,9 @@ fetch(`https://epc.opendatacommunities.org/api/v1/domestic/search?address=Cottes
   .then(response => response.json())
   .then(data => {
     const houseData = data.rows;
+    document.getElementById("house-feed").innerHTML = "";
     var mainContainer = document.getElementById("house-feed");
-    const list = new Houselist();
+    
     houseData.forEach(function(house) { 
       const houseArticle = new House(house.address, house.postcode);
       list.add(houseArticle);
@@ -22,4 +30,6 @@ fetch(`https://epc.opendatacommunities.org/api/v1/domestic/search?address=Cottes
 
     });
   });
+}
+
  
