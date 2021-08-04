@@ -10,7 +10,7 @@
 
     <h1>Search Address</h1>
 
-    <form onsubmit="myFunction()">
+    <form>
         <label for="address">Address:</label><br>
         <input type="text" id="address" name="address" value="Address"><br>
         <input type="submit" value="Submit">
@@ -18,5 +18,24 @@
 
 </body>
 
+<script> 
+
+    fetch(`https://epc.opendatacommunities.org/api/v1/domestic/search?address=Cottesbrooke close`, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Authorization': 'Basic YW1hbnRhbmsxODdAZ21haWwuY29tOjA4YjY1OTlmNzc1NzYwMDdmZjA0NmIwNTJiYzFiOTYwYWExMDFiZmM=',
+    },
+  })
+  .then(response => response.json())
+  .then(data => {
+    const houseData = data.rows;
+    houseData.forEach(function(obj) { console.log(obj.address);});
+    
+  });
+ 
+
+
+</script>
     
 </html>
