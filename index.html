@@ -16,6 +16,11 @@
         <input type="submit" value="Submit">
     </form>
 
+    <div class="house-container">
+        <div id="house-feed"></div>
+          
+      </div>
+
 </body>
 
 <script> 
@@ -30,8 +35,12 @@
   .then(response => response.json())
   .then(data => {
     const houseData = data.rows;
-    houseData.forEach(function(obj) { console.log(obj.address);});
-    
+    var mainContainer = document.getElementById("house-feed");
+    houseData.forEach(function(obj) { 
+        var div = document.createElement("div");
+        div.innerHTML = `${obj.address}`;
+        mainContainer.appendChild(div);
+    });
   });
  
 
