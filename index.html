@@ -17,34 +17,14 @@
     </form>
 
     <div class="house-container">
-        <div id="house-feed"></div>
+        <ul id="house-feed"></ul>
           
       </div>
 
 </body>
 
-<script> 
-
-    fetch(`https://epc.opendatacommunities.org/api/v1/domestic/search?address=Cottesbrooke close`, {
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      'Authorization': 'Basic YW1hbnRhbmsxODdAZ21haWwuY29tOjA4YjY1OTlmNzc1NzYwMDdmZjA0NmIwNTJiYzFiOTYwYWExMDFiZmM=',
-    },
-  })
-  .then(response => response.json())
-  .then(data => {
-    const houseData = data.rows;
-    var mainContainer = document.getElementById("house-feed");
-    houseData.forEach(function(obj) { 
-        var div = document.createElement("div");
-        div.innerHTML = `${obj.address}`;
-        mainContainer.appendChild(div);
-    });
-  });
- 
-
-
-</script>
+<script src="scripts/index.js"></script>
+<script src="scripts/house.js"></script>
+<script src="scripts/houseList.js"></script>
     
 </html>
