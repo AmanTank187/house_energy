@@ -1,6 +1,8 @@
 .house-item {
   text-align: center;
-  margin: 5% 0;
+  margin: 3% auto;
+  border: black 1px solid;
+  width: 70%;
 }
 
 .modal {
@@ -16,7 +18,7 @@
   max-height: 60%;
   overflow-y: scroll;
   border: #56403a 1px solid;
-  width: 1000px;
+  width: 1150px;
   height: 1200px;
 }
 

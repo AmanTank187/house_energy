@@ -1,9 +1,9 @@
 class Houselist{
     constructor(){
-        this.list = [];
+        this.housesArray = [];
     }
 
     add(house){
-        this.list.push(house)
+        this.housesArray.push(house)
     }
 }

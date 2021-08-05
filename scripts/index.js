@@ -1,11 +1,11 @@
 
-function myFunction() {
+function getHouseData() {
   var addressParam = document.getElementById("address").value; 
-  console.log(addressParam);
-
+  var postcodeParam = document.getElementById("postcode").value; 
+  
 const list = new Houselist();
 
-fetch(`https://epc.opendatacommunities.org/api/v1/domestic/search?address=${addressParam}`, {
+fetch(`https://epc.opendatacommunities.org/api/v1/domestic/search?address=${addressParam}&postcode=${postcodeParam}`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
@@ -22,7 +22,7 @@ fetch(`https://epc.opendatacommunities.org/api/v1/domestic/search?address=${addr
       list.add(houseArticle);
 
       output += `
-    <div class="house-item" id="${list.list.length-1}"> 
+    <div class="house-item" id="${list.housesArray.length-1}"> 
       ${houseArticle.createTitle()}  
       ${houseArticle.createModal()}
     </div>`;
