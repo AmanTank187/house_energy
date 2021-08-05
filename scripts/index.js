@@ -2,8 +2,8 @@ function validatingForm(){
   var addressParam = document.getElementById("address").value; 
   var postcodeParam = document.getElementById("postcode").value; 
 
-  if (addressParam == '' && postcodeParam == '') {
-    alert("Put in house details")
+  if ((addressParam == '' && postcodeParam == '') || (addressParam == 'Address' && postcodeParam == 'Postcode') ) {
+    alert("Please enter house details")
     return false
   } else {
     getHouseData();
@@ -41,10 +41,14 @@ fetch(`https://epc.opendatacommunities.org/api/v1/domestic/search?address=${addr
   document.getElementById("house-feed").innerHTML = output;
   
   triggerModals();
+
       
     });
     
-  });
+  }).catch(function() {
+    alert("Address or Postcode is not valid");
+});
+  
 
 }
 
@@ -63,7 +67,6 @@ const triggerModals = () => {
       closeButtons[index].addEventListener("click", toggleModal);
   }
 }
-
 
 
 
