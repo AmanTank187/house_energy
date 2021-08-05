@@ -1,3 +1,14 @@
+function validatingForm(){
+  var addressParam = document.getElementById("address").value; 
+  var postcodeParam = document.getElementById("postcode").value; 
+
+  if (addressParam == '' && postcodeParam == '') {
+    alert("Put in house details")
+    return false
+  } else {
+    getHouseData();
+  }
+}
 
 function getHouseData() {
   var addressParam = document.getElementById("address").value; 
@@ -52,6 +63,7 @@ const triggerModals = () => {
       closeButtons[index].addEventListener("click", toggleModal);
   }
 }
+
 
 
 
