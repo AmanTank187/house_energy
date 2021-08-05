@@ -5,6 +5,26 @@ class House {
     }
 
     createTitle() {
-        return `<h3>Address: ${this.address}, Postcode: ${this.postcode} </h2>`
+        return `<h3>Address: ${this.address}<br> 
+        Postcode: ${this.postcode}<br>
+        ${this.createModalLink()}`
     }
+
+    createModalLink() {
+        return `<h3 class="trigger">Click for more information</h3>`
+    }
+
+
+      createModalSum() {
+        return `<p>${this.postcode}</p>`
+      }
+
+    createModal() {
+        return `<div class="modal">
+                  <span class="btn-close">&times;</span>
+                    <div class="modal-content">
+                      ${this.createModalSum()}
+                    </div> 
+                </div>`
+      }
 }

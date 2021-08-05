@@ -1,0 +1,36 @@
+.house-item {
+  text-align: center;
+  margin: 5% 0;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  background-color: grey;
+  max-width: 80%;
+  max-height: 60%;
+  overflow-y: scroll;
+  border: #56403a 1px solid;
+  width: 1000px;
+  height: 1200px;
+}
+
+.btn-close {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+}

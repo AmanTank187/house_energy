@@ -15,21 +15,45 @@ fetch(`https://epc.opendatacommunities.org/api/v1/domestic/search?address=${addr
   .then(response => response.json())
   .then(data => {
     const houseData = data.rows;
-    document.getElementById("house-feed").innerHTML = "";
-    var mainContainer = document.getElementById("house-feed");
+    let output = ''
     
     houseData.forEach(function(house) { 
       const houseArticle = new House(house.address, house.postcode);
       list.add(houseArticle);
+
+      output += `
+    <div class="house-item" id="${list.list.length-1}"> 
+      ${houseArticle.createTitle()}  
+      ${houseArticle.createModal()}
+    </div>`;
+   
+  document.getElementById("house-feed").innerHTML = output;
+  
+  triggerModals();
       
     });
-    list.list.forEach(function(house){
-      var div = document.createElement("LI");
-      div.innerHTML = `${house.createTitle()}`
-      mainContainer.appendChild(div);
-
-    });
+    
   });
+
 }
+
+const triggerModals = () => {
+  const triggers = document.getElementsByClassName("trigger");
+  const triggerArray = Array.from(triggers).entries();
+  const modals = document.getElementsByClassName("modal");
+  const closeButtons = document.getElementsByClassName("btn-close");
+
+    for (let [index, trigger] of triggerArray) {
+      const toggleModal = () => {
+        modals[index].classList.toggle("show-modal");
+      };
+
+      trigger.addEventListener("click", toggleModal);
+      closeButtons[index].addEventListener("click", toggleModal);
+  }
+}
+
+
+
 
  
