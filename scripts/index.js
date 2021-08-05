@@ -29,7 +29,7 @@ fetch(`https://epc.opendatacommunities.org/api/v1/domestic/search?address=${addr
     let output = ''
     
     houseData.forEach(function(house) { 
-      const houseArticle = new House(house.address, house.postcode);
+      const houseArticle = new House(house.address, house.postcode, house["current-energy-efficiency"],house["potential-energy-efficiency"]);
       list.add(houseArticle);
 
       output += `

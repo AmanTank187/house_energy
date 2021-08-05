@@ -1,7 +1,9 @@
 class House {
-    constructor(address, postcode){
+    constructor(address, postcode,currentEnergy, potentialEnergy){
         this.address = address;
         this.postcode = postcode;
+        this.currentEnergy = currentEnergy;
+        this.potentialEnergy = potentialEnergy;
     }
 
     createTitle() {
@@ -15,9 +17,11 @@ class House {
     }
 
 
-      createModalSum() {
-        return `<p>${this.postcode}</p>`
-      }
+    createModalSum() {
+      return `<h1>Analysis details for ${this.address} </h1> <br>
+              <h2> Current energy: ${this.currentEnergy} </h2> <br>
+              <h2> Current energy: ${this.potentialEnergy} </h2>`
+    }
 
     createModal() {
         return `<div class="modal">
