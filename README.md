@@ -43,7 +43,7 @@ Completed requirements:
 
 Further improvements:
 
-- More anaylsis comparing to other houses nearby.
+- More analysis comparing to other houses nearby.
 - Hide API key with ENV Variable.
 - Fix case sensetivty edge case.
 
